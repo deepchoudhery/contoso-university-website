@@ -72,3 +72,42 @@ E:\My Programming\Web Development\WebPages\ContosoUniversity\ContosoUniversity_P
 E:\My Programming\Web Development\WebPages\ContosoUniversity\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.csprojResolveAssemblyReference.cache
 E:\My Programming\Web Development\WebPages\ContosoUniversity\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.dll
 E:\My Programming\Web Development\WebPages\ContosoUniversity\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.pdb
+C:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.csproj.AssemblyReference.cache
+C:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.csproj.CoreCompileInputs.cache
+C:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.dll
+C:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoUniversity.pdb
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\ApplicationInsights.config
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\csc.exe
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\System.Collections.Immutable.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\System.Reflection.Metadata.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\vbc.exe
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\VBCSCompiler.exe
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\roslyn\VBCSCompiler.exe.config
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\ContosoUniversity.dll.config
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\ContosoUniversity.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\ContosoUniversity.pdb
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\EntityFramework.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\EntityFramework.SqlServer.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.Agent.Intercept.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.DependencyCollector.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.Web.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.WindowsServer.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.ApplicationInsights.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\EntityFramework.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\EntityFramework.SqlServer.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.DependencyCollector.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.Web.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.AI.WindowsServer.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.ApplicationInsights.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\Users\decho\source\repos\testApps\contoso-university-website\ContosoUniversity_Project\ContosoUniversity\obj\Debug\ContosoU.2F40B0B5.Up2Date
