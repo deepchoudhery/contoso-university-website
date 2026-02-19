@@ -1,0 +1,45 @@
+@page
+@model ContosoUniversity.Core.Pages.InstructorsModel
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+<h1>Instructors</h1>
+
+<p>
+    <a asp-page="./CreateInstructor">Create New Instructor</a>
+</p>
+
+@if (Model.Instructors != null && Model.Instructors.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Courses Teaching</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var instructor in Model.Instructors)
+            {
+                <tr>
+                    <td>@instructor.FirstName @instructor.LastName</td>
+                    <td>@instructor.Email</td>
+                    <td>@instructor.BirthDate.ToShortDateString()</td>
+                    <td>@instructor.Courses.Count()</td>
+                    <td>
+                        <a asp-page="./EditInstructor" asp-route-id="@instructor.InstructorID" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-page="./DeleteInstructor" asp-route-id="@instructor.InstructorID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No instructors found.</p>
+}

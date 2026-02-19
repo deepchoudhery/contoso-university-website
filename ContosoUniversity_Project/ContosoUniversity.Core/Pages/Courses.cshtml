@@ -1,0 +1,47 @@
+@page
+@model ContosoUniversity.Core.Pages.CoursesModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h1>Courses</h1>
+
+<p>
+    <a asp-page="./CreateCourse">Create New Course</a>
+</p>
+
+@if (Model.Courses != null && Model.Courses.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Department</th>
+                <th>Instructor</th>
+                <th>Max Students</th>
+                <th>Current Enrollments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td>@course.CourseName</td>
+                    <td>@course.Department?.DepartmentName</td>
+                    <td>@course.Instructor?.FirstName @course.Instructor?.LastName</td>
+                    <td>@course.StudentsMax</td>
+                    <td>@course.Enrollments.Count()</td>
+                    <td>
+                        <a asp-page="./EditCourse" asp-route-id="@course.CourseID" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-page="./DeleteCourse" asp-route-id="@course.CourseID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No courses found.</p>
+}

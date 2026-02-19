@@ -1,0 +1,54 @@
+@page
+@model ContosoUniversity.Core.Pages.StudentsModel
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h1>Students</h1>
+
+<p>
+    <a asp-page="./CreateStudent">Create New Student</a>
+</p>
+
+<form method="get">
+    <div class="form-group">
+        <label for="searchString">Search by Name:</label>
+        <input type="text" name="searchString" value="@Model.SearchString" class="form-control" style="max-width: 300px; display: inline-block;" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a asp-page="./Students" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+@if (Model.Students != null && Model.Students.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Enrollments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td>@student.FirstName @student.LastName</td>
+                    <td>@student.Email</td>
+                    <td>@student.BirthDate.ToShortDateString()</td>
+                    <td>@student.Enrollments.Count()</td>
+                    <td>
+                        <a asp-page="./EditStudent" asp-route-id="@student.StudentID" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-page="./DeleteStudent" asp-route-id="@student.StudentID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No students found.</p>
+}

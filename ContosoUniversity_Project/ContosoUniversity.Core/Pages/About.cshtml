@@ -1,0 +1,34 @@
+@page
+@model ContosoUniversity.Core.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Student Enrollment Statistics</h2>
+
+@if (Model.EnrollmentStats != null && Model.EnrollmentStats.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Enrollment Date</th>
+                <th>Number of Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stat in Model.EnrollmentStats)
+            {
+                <tr>
+                    <td>@stat.EnrollmentDate.ToShortDateString()</td>
+                    <td>@stat.StudentCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No enrollment data available.</p>
+}

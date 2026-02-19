@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Contoso University</h1>
+    <p class="lead">A sample ASP.NET Core Razor Pages application for managing university data.</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h2>Students</h2>
+        <p>Manage student information and enrollments.</p>
+        <p><a class="btn btn-primary" asp-page="/Students">View Students &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Courses</h2>
+        <p>Manage course offerings and details.</p>
+        <p><a class="btn btn-primary" asp-page="/Courses">View Courses &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Instructors</h2>
+        <p>Manage instructor information and assignments.</p>
+        <p><a class="btn btn-primary" asp-page="/Instructors">View Instructors &raquo;</a></p>
+    </div>
+</div>
