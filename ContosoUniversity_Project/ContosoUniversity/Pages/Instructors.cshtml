@@ -1,0 +1,42 @@
+@page
+@model ContosoUniversity.Pages.InstructorsModel
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+@section Head {
+    <link href="~/CSS/Instructors_CSS.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Instructors.js"></script>
+}
+
+<div id="grv">
+    <h1 id="hdr">Our Instructors</h1>
+    <table class="grv" style="border-width:2px;font-size:30px;">
+        <thead>
+            <tr>
+                <th><a asp-page="/Instructors" asp-route-sortExpression="InstructorID" asp-route-sortDirection="@Model.NextSortDirection">Instructor ID</a></th>
+                <th><a asp-page="/Instructors" asp-route-sortExpression="FirstName" asp-route-sortDirection="@Model.NextSortDirection">First Name</a></th>
+                <th><a asp-page="/Instructors" asp-route-sortExpression="LastName" asp-route-sortDirection="@Model.NextSortDirection">Last Name</a></th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Instructors.Count == 0)
+            {
+                <tr><td colspan="4">There are no records to display</td></tr>
+            }
+            else
+            {
+                @foreach (var instructor in Model.Instructors)
+                {
+                    <tr>
+                        <td>@instructor.InstructorID</td>
+                        <td>@instructor.FirstName</td>
+                        <td>@instructor.LastName</td>
+                        <td>@instructor.Email</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

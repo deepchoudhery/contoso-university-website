@@ -13,10 +13,11 @@ namespace ContosoUniversity.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
+    [System.Data.Entity.DbConfigurationType(typeof(ContosoUniversityDbConfiguration))]
     public partial class ContosoUniversityEntities : DbContext
     {
-        public ContosoUniversityEntities()
-            : base("name=ContosoUniversityEntities")
+        public ContosoUniversityEntities(string connectionString)
+            : base(connectionString)
         {
         }
     

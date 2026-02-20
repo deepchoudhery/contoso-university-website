@@ -1,0 +1,18 @@
+@page
+@model ContosoUniversity.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+@section Head {
+    <link href="~/CSS/Home_CSS.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Home.js"></script>
+}
+
+<div id="welcomeHeader">
+    <h1>Welcome To Contoso University<span id="com">.com</span></h1>
+    <h1>The Darkest Place In The Web...</h1>
+</div>
+<footer>
+    @DateTime.Now.Year - Contoso University&copy;
+</footer>
