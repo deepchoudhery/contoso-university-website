@@ -40,7 +40,17 @@ namespace ContosoUniversity.BLL
 
             if (!String.IsNullOrEmpty(expression))
             {
-                query += " order by " + expression + " " + direction;
+                // Whitelist valid column names to prevent SQL injection
+                var allowedColumns = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    "InstructorID", "FirstName", "LastName", "BirthDate", "Email"
+                };
+                string safeDirection = string.Equals(direction, "asc", StringComparison.OrdinalIgnoreCase) ? "asc" : "desc";
+                if (!allowedColumns.Contains(expression))
+                {
+                    throw new ArgumentException($"Invalid sort expression: {expression}");
+                }
+                query += " order by " + expression + " " + safeDirection;
             }
 
             using (SqlConnection con = new SqlConnection(connectionStr))
