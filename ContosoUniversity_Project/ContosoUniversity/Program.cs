@@ -1,6 +1,13 @@
+using ContosoUniversity;
 using ContosoUniversity.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Initialize connection strings from configuration
+ConnectionStringProvider.EfConnectionString = builder.Configuration.GetConnectionString("ContosoUniversityEntities")
+    ?? ConnectionStringProvider.EfConnectionString;
+ConnectionStringProvider.SqlConnectionString = builder.Configuration.GetConnectionString("ContosoUniversity")
+    ?? ConnectionStringProvider.SqlConnectionString;
 
 // Add services to the container
 builder.Services.AddRazorPages();

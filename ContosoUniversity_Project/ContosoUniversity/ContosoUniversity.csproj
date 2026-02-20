@@ -4,10 +4,8 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <OutputPath>bin\</OutputPath>
     <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Images\outer-space-wallpaper-pictures.jpg" />
     <Content Include="Images\space-4.jpg" />
@@ -142,10 +140,23 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Label="Compile items now included by globbing that were not in the original project file">
     <Compile Remove="Models\Enrollmet_Logic.cs" />
     <Compile Remove="BLL\StudentsListLogic.cs" />
+    <Compile Remove="About.aspx.cs" />
+    <Compile Remove="About.aspx.designer.cs" />
+    <Compile Remove="Courses.aspx.cs" />
+    <Compile Remove="Courses.aspx.designer.cs" />
+    <Compile Remove="Home.aspx.cs" />
+    <Compile Remove="Home.aspx.designer.cs" />
+    <Compile Remove="Instructors.aspx.cs" />
+    <Compile Remove="Instructors.aspx.designer.cs" />
+    <Compile Remove="Students.aspx.cs" />
+    <Compile Remove="Students.aspx.designer.cs" />
+    <Compile Remove="Global.asax.cs" />
+    <Compile Remove="Site.Master.cs" />
+    <Compile Remove="Site.Master.designer.cs" />
   </ItemGroup>
 </Project>

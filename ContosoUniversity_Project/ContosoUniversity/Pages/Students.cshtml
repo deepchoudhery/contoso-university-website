@@ -1,0 +1,128 @@
+@page
+@model ContosoUniversity.Pages.StudentsModel
+@{
+    ViewData["Title"] = "Students";
+}
+@section Head {
+    <link href="~/CSS/Students_CSS.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Students.js"></script>
+}
+
+<div id="grvStudentsData">
+    <table class="grv">
+        <thead>
+            <tr>
+                <th>Delete</th>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Enrollment Date</th>
+                <th>Number of Courses</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.StudentsData)
+            {
+                var s = (dynamic)student;
+                <tr>
+                    <td>
+                        <form method="post" asp-page-handler="Delete">
+                            <input type="hidden" name="id" value="@s.ID" />
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                    <td>@s.ID</td>
+                    <td>@s.FullName</td>
+                    <td>@s.Email</td>
+                    <td>@s.Date</td>
+                    <td>@s.Count</td>
+                    <td>
+                        <form method="post" asp-page-handler="Update">
+                            <input type="hidden" name="id" value="@s.ID" />
+                            <input type="text" name="name" value="@s.FullName" />
+                            <input type="text" name="email" value="@s.Email" />
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div id="addStud">
+    <h1 id="addStudent">Add Student</h1>
+    <form method="post" asp-page-handler="Add">
+        <table class="tabAddStud">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="firstName" placeholder="Type Your First Name..." /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lastName" placeholder="Type Your Last Name..." /></td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td><input type="text" name="birthDate" placeholder="dd.mm.year" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" placeholder="Email is Optional..." /></td>
+            </tr>
+            <tr>
+                <td>Course Name</td>
+                <td>
+                    <select name="course">
+                        @foreach (var course in Model.Courses)
+                        {
+                            <option value="@course">@course</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="insert" type="submit">New Enrollment</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div id="ajax">
+    <h1 id="searchStud">Search Student</h1>
+    <form method="post" asp-page-handler="Search">
+        <input class="txtSearch" type="text" name="searchName" placeholder="Type Student Name..." />
+        <button class="btnInfo" type="submit">Show Student Info</button>
+    </form>
+    @if (Model.SearchResults.Count > 0)
+    {
+        <table class="detailsView">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Birth Date</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.SearchResults)
+                {
+                    var s = (dynamic)student;
+                    <tr>
+                        <td>@s.FirstName</td>
+                        <td>@s.LastName</td>
+                        <td>@s.Email</td>
+                        <td>@s.BirthDate</td>
+                        <td>@s.StudentID</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

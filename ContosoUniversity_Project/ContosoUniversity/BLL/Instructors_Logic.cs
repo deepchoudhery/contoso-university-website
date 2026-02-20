@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Data;
 using Microsoft.Data.SqlClient;
-using System.Configuration;
 
 using ContosoUniversity.Models;
 
@@ -27,7 +25,7 @@ namespace ContosoUniversity.BLL
         {           
             List<Instructor> list = new List<Instructor>();
             string query = "select * from dbo.[Instructors]";
-            string connectionStr = ConfigurationManager.ConnectionStrings["ContosoUniversity"].ConnectionString;
+            string connectionStr = ConnectionStringProvider.SqlConnectionString;
 
             if (!String.IsNullOrEmpty(expression))
             {

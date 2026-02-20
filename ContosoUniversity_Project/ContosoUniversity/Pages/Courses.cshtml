@@ -1,0 +1,71 @@
+@page
+@model ContosoUniversity.Pages.CoursesModel
+@{
+    ViewData["Title"] = "Courses";
+}
+@section Head {
+    <link href="~/CSS/CSS_Courses.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Courses.js"></script>
+}
+
+<div id="dropList">
+    <h1 id="hdrCourse">Select Course</h1>
+    <form method="post" asp-page-handler="SearchByDepartment">
+        <select name="department">
+            @foreach (var dept in Model.Departments)
+            {
+                if (dept == Model.SelectedDepartment)
+                {
+                    <option value="@dept" selected>@dept</option>
+                }
+                else
+                {
+                    <option value="@dept">@dept</option>
+                }
+            }
+        </select>
+        <input type="submit" value="Search Courses" />
+    </form>
+    @if (Model.CoursesByDepartment.Count > 0)
+    {
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Max Capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.CoursesByDepartment)
+                {
+                    <tr>
+                        <td>@course.CourseID</td>
+                        <td>@course.CourseName</td>
+                        <td>@course.StudentsMax</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<div id="autoComplete">
+    <h1 id="crsByName">Courses By Name</h1>
+    <form method="post" asp-page-handler="SearchByName">
+        <input type="text" name="courseName" placeholder="Search Course..." value="@Model.CourseSearchName" />
+        <input type="submit" value="Search" />
+    </form>
+    @if (Model.CourseByName != null)
+    {
+        <br />
+        <table class="details">
+            <tbody>
+                <tr><th>Course ID</th><td>@Model.CourseByName.CourseID</td></tr>
+                <tr><th>Course Name</th><td>@Model.CourseByName.CourseName</td></tr>
+                <tr><th>Max Capacity</th><td>@Model.CourseByName.StudentsMax</td></tr>
+            </tbody>
+        </table>
+    }
+</div>

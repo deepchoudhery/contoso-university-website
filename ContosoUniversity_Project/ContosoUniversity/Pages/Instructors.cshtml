@@ -1,0 +1,40 @@
+@page
+@model ContosoUniversity.Pages.InstructorsModel
+@{
+    ViewData["Title"] = "Instructors";
+}
+@section Head {
+    <link href="~/CSS/Instructors_CSS.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Instructors.js"></script>
+}
+
+<div id="grv">
+    <h1 id="hdr">Our Instructors</h1>
+    <table class="grv">
+        <thead>
+            <tr>
+                <th>
+                    <a href="?sortExpression=InstructorID&sortDirection=@Model.NextSortDirection">Instructor ID</a>
+                </th>
+                <th>
+                    <a href="?sortExpression=FirstName&sortDirection=@Model.NextSortDirection">First Name</a>
+                </th>
+                <th>
+                    <a href="?sortExpression=LastName&sortDirection=@Model.NextSortDirection">Last Name</a>
+                </th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var instructor in Model.Instructors)
+            {
+                <tr>
+                    <td>@instructor.InstructorID</td>
+                    <td>@instructor.FirstName</td>
+                    <td>@instructor.LastName</td>
+                    <td>@instructor.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
