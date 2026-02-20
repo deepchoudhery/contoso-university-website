@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using ContosoUniversity.Models;
 using ContosoUniversity.Bll;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace ContosoUniversity

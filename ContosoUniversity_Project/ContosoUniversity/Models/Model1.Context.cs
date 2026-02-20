@@ -15,8 +15,8 @@ namespace ContosoUniversity.Models
     
     public partial class ContosoUniversityEntities : DbContext
     {
-        public ContosoUniversityEntities()
-            : base("name=ContosoUniversityEntities")
+        public ContosoUniversityEntities(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
         }
     
