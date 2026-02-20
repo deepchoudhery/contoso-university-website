@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 using ContosoUniversity.Models;
 
@@ -12,10 +11,19 @@ namespace ContosoUniversity.BLL
 {
     public class Instructors_Logic
     {
+        private readonly ContosoUniversityEntities _context;
+        private readonly IConfiguration _configuration;
+
+        public Instructors_Logic(ContosoUniversityEntities context, IConfiguration configuration)
+        {
+            _context = context;
+            _configuration = configuration;
+        }
+
         #region Get Instructors List
         public List<Instructor> getInstructors()
         {
-            var instructors = (from instructor in new ContosoUniversityEntities().Instructors
+            var instructors = (from instructor in _context.Instructors
                                select instructor).ToList<Instructor>();
 
             return instructors;
@@ -23,11 +31,12 @@ namespace ContosoUniversity.BLL
         #endregion
 
         #region Get Sorted Instructors List
-        public List<Instructor> GetSortedInstrucors(string expression,string direction)
-        {           
+        public List<Instructor> GetSortedInstrucors(string expression, string direction)
+        {
             List<Instructor> list = new List<Instructor>();
             string query = "select * from dbo.[Instructors]";
-            string connectionStr = ConfigurationManager.ConnectionStrings["ContosoUniversity"].ConnectionString;
+            string connectionStr = _configuration.GetConnectionString("ContosoUniversity")
+                ?? throw new InvalidOperationException("Connection string 'ContosoUniversity' not found.");
 
             if (!String.IsNullOrEmpty(expression))
             {
@@ -47,15 +56,15 @@ namespace ContosoUniversity.BLL
                             Instructor instr = new Instructor();
 
                             instr.InstructorID = Convert.ToInt32(dr["InstructorID"]);
-                            instr.FirstName = dr["FirstName"].ToString();
-                            instr.LastName = dr["LastName"].ToString();
-                            instr.BirthDate = DateTime.Parse(dr["BirthDate"].ToString());
-                            instr.Email = dr["Email"].ToString();
+                            instr.FirstName = dr["FirstName"].ToString()!;
+                            instr.LastName = dr["LastName"].ToString()!;
+                            instr.BirthDate = DateTime.Parse(dr["BirthDate"].ToString()!);
+                            instr.Email = dr["Email"].ToString()!;
 
                             list.Add(instr);
                         }
                         dr.Close();
-                    }                   
+                    }
                 }
                 con.Close();
             }

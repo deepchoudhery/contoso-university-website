@@ -1,0 +1,129 @@
+@page
+@model ContosoUniversity.Pages.StudentsModel
+@{
+    ViewData["Title"] = "Students";
+}
+
+@section Head {
+    <link href="~/CSS/Students_CSS.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Students.js"></script>
+}
+
+<div id="grvStudentsData">
+    @if (Model.Students.Count == 0)
+    {
+        <p>There are no records to display</p>
+    }
+    else
+    {
+        <table class="grv" style="background-color:white;border-color:#3366CC;border-style:solid;border-width:1px;height:336px;width:416px;" cellpadding="4">
+            <thead>
+                <tr style="background-color:#003399;color:#CCCCFF;font-weight:bold;">
+                    <th>Delete</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Enrollment Date</th>
+                    <th>Number of Courses</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr style="background-color:white;color:#003399;">
+                        <td>
+                            <form method="post" asp-page-handler="Delete">
+                                <input type="hidden" name="id" value="@student.ID" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                        <td>@student.ID</td>
+                        <td>@student.FullName</td>
+                        <td>@student.Email</td>
+                        <td>@student.Date</td>
+                        <td>@student.Count</td>
+                        <td>
+                            <a href="/Students/Edit/@student.ID">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<div id="addStud">
+    <h1 id="addStudent">Add Student</h1>
+    <form method="post" asp-page-handler="Insert">
+        <table class="tabAddStud" style="border-color:#0033CC;color:white;font-weight:bold;">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="FirstName" placeholder="Type Your First Name..." /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" placeholder="Type Your Last Name..." /></td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td><input type="text" name="BirthDate" placeholder="dd/mm/yyyy" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="Email" placeholder="Email is Optional..." /></td>
+            </tr>
+            <tr>
+                <td>Course Name</td>
+                <td>
+                    <select name="CourseName">
+                        @foreach (var course in Model.Courses)
+                        {
+                            <option value="@course">@course</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="insert">New Enrollment</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div id="ajax">
+    <h1 id="searchStud">Search Student</h1>
+    <form method="get" asp-page-handler="Search">
+        <input type="text" name="searchName" class="txtSearch" placeholder="Type Student Name..." value="@Model.SearchName" />
+        <button type="submit" class="btnInfo">Show Student Info</button>
+    </form>
+    @if (Model.SearchResults.Count > 0)
+    {
+        <table class="detailsView" style="width:125px;height:50px;border-color:black;color:black;">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Birth Date</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model.SearchResults)
+                {
+                    <tr style="background-color:white;">
+                        <td>@s.FirstName</td>
+                        <td>@s.LastName</td>
+                        <td>@s.Email</td>
+                        <td>@s.BirthDate</td>
+                        <td>@s.StudentID</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
