@@ -1,0 +1,79 @@
+@page
+@model ContosoUniversity.Pages.CoursesModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+@section Head {
+    <link href="~/CSS/CSS_Courses.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_Courses.js"></script>
+}
+
+<div id="dropList">
+    <h1 id="hdrCourse">Select Course</h1>
+    <form method="post" asp-page-handler="SearchByDepartment">
+        <select name="department">
+            @foreach (var dep in Model.Departments)
+            {
+                <option value="@dep">@dep</option>
+            }
+        </select>
+        <button type="submit">Search Courses</button>
+    </form>
+    <br />
+    @if (Model.CoursesByDepartment.Count > 0)
+    {
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Course Name</th><th>Max Capacity</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.CoursesByDepartment)
+                {
+                    <tr>
+                        <td>@course.CourseID</td>
+                        <td>@course.CourseName</td>
+                        <td>@course.StudentsMax</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.SearchedDepartment != null)
+    {
+        <p>Chose Department To Display Courses</p>
+    }
+</div>
+
+<div id="autoComplete">
+    <h1 id="crsByName">Courses By Name</h1>
+    <form method="get" asp-page-handler="SearchByName">
+        <input type="text" name="courseName" placeholder="Search Course..." value="@Model.SearchedCourseName" />
+        <button type="submit">Search</button>
+    </form>
+    <br />
+    @if (Model.CoursesByName.Count > 0)
+    {
+        <table class="details">
+            <thead>
+                <tr>
+                    @foreach (var prop in Model.CoursesByName.First().GetType().GetProperties())
+                    {
+                        <th>@prop.Name</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.CoursesByName)
+                {
+                    <tr>
+                        <td>@course.CourseID</td>
+                        <td>@course.CourseName</td>
+                        <td>@course.StudentsMax</td>
+                        <td>@course.Department?.DepartmentName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

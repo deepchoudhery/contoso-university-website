@@ -1,0 +1,33 @@
+@page
+@model ContosoUniversity.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+@section Head {
+    <link href="~/CSS/CSS_About.css" rel="stylesheet" />
+    <script src="~/JQuery/JQuery_About.js"></script>
+}
+
+<div id="header">
+    <h1>Students Body Statistics</h1>
+</div>
+<div id="grv">
+    <table class="grid" cellpadding="4">
+        <thead>
+            <tr>
+                <th style="background-color:black;color:white;font-size:30px;border:1px solid white;">Enrollment Date</th>
+                <th style="background-color:black;color:white;font-size:30px;border:1px solid white;">Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model.EnrollmentStats)
+            {
+                <tr style="background-color:#EFF3FB;">
+                    <td style="border:1px solid white;font-size:20px;text-align:center;">@entry.Key</td>
+                    <td style="border:1px solid white;font-size:20px;text-align:center;">@entry.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
